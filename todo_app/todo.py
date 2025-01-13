@@ -54,16 +54,17 @@ def delete_task(tasks):
 def complete_task(tasks):
     view_tasks(tasks)
     try:
-        task_num = int(input("Enter the number of the task to mark as completed: ")) - 1
-        if 0 <= task_num < len(tasks):
-            if tasks[task_num]['completed']:
+        task_num = int(input("Enter the number of the task to mark as completed: "))
+        if 1 <= task_num <= len(tasks):
+            task_index = task_num - 1
+            if tasks[task_index]['completed']:
                 print("This task is already marked as completed.")
             else:
-                tasks[task_num]['completed'] = True
+                tasks[task_index]['completed'] = True
                 save_tasks(tasks)
                 print("Task marked as completed!")
         else:
-            print("Invalid task number.")
+            print("Invalid task number. Please choose a number within the valid range.")
     except ValueError:
         print("Please enter a valid number.")
 
