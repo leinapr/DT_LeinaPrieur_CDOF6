@@ -1,5 +1,13 @@
+from distutils.core import setup
 import json
 import os
+setup(
+name='{Todo_List_Application}',
+version='1.0',
+author='{Leina_Prieur}',
+license='MIT',
+long_description=open('README.md').read(),
+)
 
 # File to store tasks
 tasks_file = "tasks.json"
