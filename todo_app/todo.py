@@ -56,9 +56,12 @@ def complete_task(tasks):
     try:
         task_num = int(input("Enter the number of the task to mark as completed: ")) - 1
         if 0 <= task_num < len(tasks):
-            tasks[task_num]['completed'] = True
-            save_tasks(tasks)
-            print("Task marked as completed!")
+            if tasks[task_num]['completed']:
+                print("This task is already marked as completed.")
+            else:
+                tasks[task_num]['completed'] = True
+                save_tasks(tasks)
+                print("Task marked as completed!")
         else:
             print("Invalid task number.")
     except ValueError:
@@ -92,4 +95,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
