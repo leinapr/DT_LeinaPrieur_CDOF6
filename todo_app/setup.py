@@ -6,21 +6,15 @@ tasks_file = "tasks.json"
 
 # Load tasks from file
 def load_tasks():
-    try:
-        if os.path.exists(tasks_file):
-            with open(tasks_file, 'r') as file:
-                return json.load(file)
-    except (json.JSONDecodeError, IOError) as e:
-        print(f"Error loading tasks: {e}")
+    if os.path.exists(tasks_file):
+        with open(tasks_file, 'r') as file:
+            return json.load(file)
     return []
 
 # Save tasks to file
 def save_tasks(tasks):
-    try:
-        with open(tasks_file, 'w') as file:
-            json.dump(tasks, file, indent=4)
-    except IOError as e:
-        print(f"Error saving tasks: {e}")
+    with open(tasks_file, 'w') as file:
+        json.dump(tasks, file, indent=4)
 
 # Display all tasks
 def view_tasks(tasks):
@@ -102,4 +96,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
